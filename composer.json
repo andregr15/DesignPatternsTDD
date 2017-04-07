@@ -1,0 +1,13 @@
+{
+	"require": {
+		"pimple/pimple": "~3.0",
+		"phpunit/phpunit": "^5.7"
+	},
+	"config": {
+		"bin-dir": "bin/"
+	},
+	
+	"autoload": {
+		"psr-0" : {"AGR": "src/"}
+	}
+}
