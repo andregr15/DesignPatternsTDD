@@ -47,14 +47,14 @@ class FormTeste extends \PHPUnit_Framework_TestCase{
         $this->assertEquals('<form action="acao" method="metodo"></form>', $this->obj->render());
         
         $textMock = $this->getMockBuilder('AGR\Element\Text')->setConstructorArgs(['conteudo'=>'conteudo: '])->getMock();
-        $textMock->method('render')->willReturn('conteudo: ');
+        $textMock->method('render')->willReturn('conteudo: <br>');
         $this->obj->addItem($textMock);
 
         $inputMock = $this->getMockBuilder('AGR\Element\Input')->setConstructorArgs(['nome'=>'nome', 'valor'=>'valor'])->getMock();
-        $inputMock->method('render')->willReturn('<input type="submit" name="nome" value="valor"/>');
+        $inputMock->method('render')->willReturn('<input type="submit" name="nome" value="valor"/><br>');
         $this->obj->addItem($inputMock);
 
-        $this->assertEquals('<form action="acao" method="metodo">conteudo: <input type="submit" name="nome" value="valor"/></form>', $this->obj->render());
+        $this->assertEquals('<form action="acao" method="metodo">conteudo: <br><input type="submit" name="nome" value="valor"/><br></form>', $this->obj->render());
     }
 }
 ?>

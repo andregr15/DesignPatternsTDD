@@ -36,7 +36,7 @@ class TextAreaTeste extends \PHPUnit_Framework_TestCase {
     }
 
     public function testeMetodoRender(){
-        $this->assertEquals('<textarea rows="50" cols="10">teste de textarea</textarea>', $this->obj->render());
+        $this->assertEquals('<textarea rows="50" cols="10">teste de textarea</textarea><br>', $this->obj->render());
     }
 }
 

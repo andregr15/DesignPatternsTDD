@@ -12,7 +12,7 @@ class Text implements \AGR\Interfaces\ElementInterface{
     }
 
     function render(){
-        return $this->conteudo;
+        return $this->conteudo."<br>";
     }
 }
 ?>

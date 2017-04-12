@@ -30,7 +30,7 @@ class TextTeste extends \PHPUnit_Framework_TestCase{
     }
 
     function testeMetodoRender(){
-        $this->assertEquals('conteudo', $this->obj->render());
+        $this->assertEquals('conteudo<br>', $this->obj->render());
     }
 }
 ?>

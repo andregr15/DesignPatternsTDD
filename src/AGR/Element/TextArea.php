@@ -22,7 +22,7 @@ class TextArea implements \AGR\Interfaces\ElementInterface{
     }
 
     function render(){
-        return "<textarea rows=\"{$this->linhas}\" cols=\"{$this->colunas}\">{$this->conteudo}</textarea>";
+        return "<textarea rows=\"{$this->linhas}\" cols=\"{$this->colunas}\">{$this->conteudo}</textarea><br>";
     }
 }
 ?>

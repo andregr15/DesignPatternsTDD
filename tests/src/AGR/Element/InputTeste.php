@@ -36,7 +36,7 @@ class InputTeste extends \PHPUnit_Framework_TestCase{
     }
 
     function testeMetodoRender(){
-        $this->assertEquals('<input type="submit" name="salvar" value="Salvar">', $this->obj->render());
+        $this->assertEquals('<input type="submit" name="salvar" value="Salvar"><br>', $this->obj->render());
     }
 }
 

@@ -25,7 +25,7 @@ class Select implements \AGR\Interfaces\ElementInterface{
         foreach($this->items as $item){
             $ret.="<option value='{$item}'>{$item}</option>";
         }
-        $ret.='</select>';
+        $ret.='</select><br>';
         return $ret;
     }
 }

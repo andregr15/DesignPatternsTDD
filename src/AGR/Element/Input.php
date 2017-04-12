@@ -19,7 +19,7 @@ class Input implements \AGR\Interfaces\ElementInterface{
     }
 
     function render(){
-        return "<input type=\"submit\" name=\"{$this->nome}\" value=\"{$this->valor}\">";
+        return "<input type=\"submit\" name=\"{$this->nome}\" value=\"{$this->valor}\"><br>";
     }
 }
 ?>

@@ -40,7 +40,7 @@ class SelectTeste extends \PHPUnit_Framework_TestCase{
 
 
     function testeMetodoRender(){
-        $this->assertEquals('<select><option value=\'valor1\'>valor1</option><option value=\'valor2\'>valor2</option></select>', $this->obj->render());
+        $this->assertEquals('<select><option value=\'valor1\'>valor1</option><option value=\'valor2\'>valor2</option></select><br>', $this->obj->render());
     }
 }
 ?>

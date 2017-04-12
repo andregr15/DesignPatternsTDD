@@ -42,6 +42,15 @@ class ElementFacade implements \AGR\Interfaces\ElementInterface{
                 }
                 return $form;
                 break;
+            case 'fieldset':
+                $fieldSet = new FieldSet();
+                if(isset($dado['itens'])){
+                    foreach($dado['itens'] as $item){
+                        $fieldSet->addItem($this->createField($item));
+                    }
+                }
+                return $fieldSet;
+                break;
             case 'text':
                 return new Text($dado['conteudo']);
                 break;
