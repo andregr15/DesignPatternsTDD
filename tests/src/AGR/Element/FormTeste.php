@@ -43,7 +43,7 @@ class FormTeste extends \PHPUnit_Framework_TestCase{
         $this->obj = new Form('acao', null);
     }
 
-    function testeMetodoRenderComMock(){
+    function testeUnitarioMetodoRender(){
         $this->assertEquals('<form action="acao" method="metodo"></form>', $this->obj->render());
         
         $textMock = $this->getMockBuilder('AGR\Element\Text')->setConstructorArgs(['conteudo'=>'conteudo: '])->getMock();
@@ -51,10 +51,22 @@ class FormTeste extends \PHPUnit_Framework_TestCase{
         $this->obj->addItem($textMock);
 
         $inputMock = $this->getMockBuilder('AGR\Element\Input')->setConstructorArgs(['nome'=>'nome', 'valor'=>'valor'])->getMock();
-        $inputMock->method('render')->willReturn('<input type="submit" name="nome" value="valor"/><br>');
+        $inputMock->method('render')->willReturn('<input type="submit" name="nome" value="valor"><br>');
         $this->obj->addItem($inputMock);
 
-        $this->assertEquals('<form action="acao" method="metodo">conteudo: <br><input type="submit" name="nome" value="valor"/><br></form>', $this->obj->render());
+        $this->assertEquals('<form action="acao" method="metodo">conteudo: <br><input type="submit" name="nome" value="valor"><br></form>', $this->obj->render());
+    }
+
+    function testeFuncionalMetodoRender(){
+        $this->assertEquals('<form action="acao" method="metodo"></form>', $this->obj->render());
+        
+        $text = new Text('conteudo: ');
+        $this->obj->addItem($text);
+
+        $input = new Input('nome', 'valor');
+        $this->obj->addItem($input);
+
+        $this->assertEquals('<form action="acao" method="metodo">conteudo: <br><input type="submit" name="nome" value="valor"><br></form>', $this->obj->render());
     }
 }
 ?>

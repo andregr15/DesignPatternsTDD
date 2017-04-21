@@ -72,7 +72,8 @@ class ElementFacade implements \AGR\Interfaces\ElementInterface{
                 return $select;
                 break;
             case 'input':
-                return new Input($dado['nome'], $dado['valor']);
+                return isset($dado['type']) ? new Input($dado['nome'], $dado['valor'], $dado['type']) : 
+                                              new Input($dado['nome'], $dado['valor']);
                 break;
         }
     }
