@@ -3,7 +3,7 @@ namespace AGR\Model;
 
 class Produto{
 
-    private $nome, $descricao, $valor;
+    private $nome, $descricao, $valor, $categoria;
 
     function setNome($nome){
         if(!isset($nome) || strlen($nome) == 0){
@@ -28,14 +28,18 @@ class Produto{
     }
 
     function setValor($valor){
-        if(!is_numeric($valor)){
-            throw new \InvalidArgumentException('Parâmetro valor deve ser númerico!');
+        if(!is_numeric($valor) && $valor >= 0){
+            throw new \InvalidArgumentException('Parâmetro valor deve ser um número positivo!');
         }
         $this->valor = $valor;
     }
 
     function getValor(){
         return $this->valor;
+    }
+
+    function setCategoria($categoria){
+        $this->categoria = $categoria;
     }
 
     

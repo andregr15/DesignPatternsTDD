@@ -34,7 +34,7 @@ class ElementFacade implements \AGR\Interfaces\ElementInterface{
 
         switch($dado['tipo']){
             case 'form':
-                $form = new Form($dado['acao'], $dado['metodo']);
+                $form = new Form($dado['acao'], $dado['metodo'], new \AGR\Validator\Validator(new \AGR\Request\Request()));
                 if(isset($dado['itens'])){
                     foreach($dado['itens'] as $item){
                         $form->addItem($this->createField($item));
