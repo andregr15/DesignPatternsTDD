@@ -1,5 +1,10 @@
 <?php
 require_once __DIR__.'/vendor/autoload.php';
+use Pimple\Container;
+use AGR\Dao\SqliteDao;
+
+$sqlite = new SqliteDao();
+$sqlite->fixture();
 
 $form = new \AGR\Element\ElementFacade(new AGR\Validator\Validator(new AGR\Request\Request));
 $dados = array
@@ -10,6 +15,7 @@ $dados = array
                 array('categoria'=>'unitário', 'type'=>'select')
             );
 
+$dados['categorias'] = $sqlite->getCategorias();
 $form->populate($dados);
 echo $form->render();
 
