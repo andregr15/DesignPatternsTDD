@@ -166,7 +166,7 @@ class FormTeste extends \PHPUnit_Framework_TestCase{
         );
 
         $this->obj->populate($dados);
-        $this->assertEquals('<form action="acao" method="metodo"><fieldset>Nome: <br><input type="text" name="nome" value="produto 1"><br>Valor :<br><input type="text" name="valor" value="150.10"><br>Descrição: <br><textarea rols="50" cols="100">descrição produto 1</textarea><br>Forma De Venda: <br><select><option value="unitario">Unitário</option></select><br></fieldset></form>', $this->obj->render());
+        $this->assertEquals('<form action="acao" method="metodo"><fieldset>Nome: <br><input type="text" name="nome" value="produto 1"><br>Valor: <br><input type="text" name="valor" value="150.10"><br>Descrição: <br><textarea rows="50" cols="100">descrição produto 1</textarea><br>Forma de Venda: <br><select><option value=\'unitario\'>Unitário</option></select><br></fieldset></form>', $this->obj->render());
     }
 }
 ?>

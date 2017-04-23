@@ -7,8 +7,8 @@ class SelectTeste extends \PHPUnit_Framework_TestCase{
 
     function setUp(){
         $this->obj = new Select();
-        $this->obj->addItem('valor1');
-        $this->obj->addItem('valor2');
+        $this->obj->addItem(array('valor'=>'valor1', 'conteudo'=>'Valor 1'));
+        $this->obj->addItem(array('valor'=>'valor2', 'conteudo'=>'Valor 2'));
     }
 
     function tearDown(){
@@ -28,6 +28,8 @@ class SelectTeste extends \PHPUnit_Framework_TestCase{
      */
     function testeMetodoAddItemException(){
         $this->obj->addItem(null);
+        $this->obj->addItem('a');
+        $this->obj->addItem(array());
     }
 
      /**
@@ -40,7 +42,7 @@ class SelectTeste extends \PHPUnit_Framework_TestCase{
 
 
     function testeMetodoRender(){
-        $this->assertEquals('<select><option value=\'valor1\'>valor1</option><option value=\'valor2\'>valor2</option></select><br>', $this->obj->render());
+        $this->assertEquals('<select><option value=\'valor1\'>Valor 1</option><option value=\'valor2\'>Valor 2</option></select><br>', $this->obj->render());
     }
 }
 ?>

@@ -67,7 +67,7 @@ class Form implements \AGR\Interfaces\ElementInterface{
         $fieldSet->addItem(new Text('Forma de Venda: '));
 
         $select = new Select();
-        $select->addItem('unitário');
+        $select->addItem(array('valor'=>'unitario', 'conteudo'=>'Unitário'));
         $fieldSet->addItem($select);
 
         $this->addItem($fieldSet);

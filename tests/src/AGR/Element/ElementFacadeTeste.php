@@ -42,13 +42,13 @@ class ElementFacadeTeste extends \PHPUnit_Framework_TestCase{
             array('tipo'=>'text', 'conteudo'=>'conteudo'),
             array('tipo'=>'textarea', 'linhas'=>10, 'colunas'=>50, 'conteudo'=>'conteudo'),
             array('tipo'=>'lista', 'itens'=>array(1, 2, 3)),
-            array('tipo'=>'select', 'itens'=>array('item1', 'item2', 'item3')),
+            array('tipo'=>'select', 'itens'=>array(array('valor'=>'item1', 'conteudo'=>'item 1'), array('valor'=>'item2', 'conteudo'=>'item 2'), array('valor'=>'item3', 'conteudo'=>'item 3'))),
             array('tipo'=>'input', 'nome'=>'nome', 'valor'=>'valor'),
             array('tipo'=>'input', 'nome'=>'nome', 'valor'=>'valor', 'type'=>'text')
         );
 
         $this->obj->addElements($dados);
-        $this->assertEquals('<form action="acao" method="metodo"></form><fieldset></fieldset>conteudo<br><textarea rows="10" cols="50">conteudo</textarea><br><ul><li>1</li><li>2</li><li>3</li></ul><select><option value=\'item1\'>item1</option><option value=\'item2\'>item2</option><option value=\'item3\'>item3</option></select><br><input type="submit" name="nome" value="valor"><br><input type="text" name="nome" value="valor"><br>', $this->obj->render());
+        $this->assertEquals('<form action="acao" method="metodo"></form><fieldset></fieldset>conteudo<br><textarea rows="10" cols="50">conteudo</textarea><br><ul><li>1</li><li>2</li><li>3</li></ul><select><option value=\'item1\'>item 1</option><option value=\'item2\'>item 2</option><option value=\'item3\'>item 3</option></select><br><input type="submit" name="nome" value="valor"><br><input type="text" name="nome" value="valor"><br>', $this->obj->render());
     }
 
     function testeAddElementsWithFormItensMethod(){
@@ -57,14 +57,14 @@ class ElementFacadeTeste extends \PHPUnit_Framework_TestCase{
                 array('tipo'=>'text', 'conteudo'=>'conteudo'),
                 array('tipo'=>'textarea', 'linhas'=>10, 'colunas'=>50, 'conteudo'=>'conteudo'),
                 array('tipo'=>'lista', 'itens'=>array(1, 2, 3)),
-                array('tipo'=>'select', 'itens'=>array('item1', 'item2', 'item3')),
+                array('tipo'=>'select', 'itens'=>array(array('valor'=>'item1', 'conteudo'=>'item 1'), array('valor'=>'item2', 'conteudo'=>'item 2'), array('valor'=>'item3', 'conteudo'=>'item 3'))),
                 array('tipo'=>'input', 'nome'=>'nome', 'valor'=>'valor'),
                 array('tipo'=>'input', 'nome'=>'texto', 'valor'=>'texto', 'type'=>'text')
                 )
             )
         );
         $this->obj->addElements($dados);
-        $this->assertEquals('<form action="acao" method="metodo">conteudo<br><textarea rows="10" cols="50">conteudo</textarea><br><ul><li>1</li><li>2</li><li>3</li></ul><select><option value=\'item1\'>item1</option><option value=\'item2\'>item2</option><option value=\'item3\'>item3</option></select><br><input type="submit" name="nome" value="valor"><br><input type="text" name="texto" value="texto"><br></form>', $this->obj->render());
+        $this->assertEquals('<form action="acao" method="metodo">conteudo<br><textarea rows="10" cols="50">conteudo</textarea><br><ul><li>1</li><li>2</li><li>3</li></ul><select><option value=\'item1\'>item 1</option><option value=\'item2\'>item 2</option><option value=\'item3\'>item 3</option></select><br><input type="submit" name="nome" value="valor"><br><input type="text" name="texto" value="texto"><br></form>', $this->obj->render());
     }
 
     function testeAddElementsWithFieldSetItensMethod(){
@@ -74,7 +74,7 @@ class ElementFacadeTeste extends \PHPUnit_Framework_TestCase{
                     array('tipo'=>'text', 'conteudo'=>'conteudo'),
                     array('tipo'=>'textarea', 'linhas'=>10, 'colunas'=>50, 'conteudo'=>'conteudo'),
                     array('tipo'=>'lista', 'itens'=>array(1, 2, 3)),
-                    array('tipo'=>'select', 'itens'=>array('item1', 'item2', 'item3')),
+                    array('tipo'=>'select', 'itens'=>array(array('valor'=>'item1', 'conteudo'=>'item 1'), array('valor'=>'item2', 'conteudo'=>'item 2'), array('valor'=>'item3', 'conteudo'=>'item 3'))),
                     array('tipo'=>'input', 'nome'=>'nome', 'valor'=>'valor'),
                     array('tipo'=>'input', 'nome'=>'texto', 'valor'=>'texto', 'type'=>'text')
                     )
@@ -83,7 +83,7 @@ class ElementFacadeTeste extends \PHPUnit_Framework_TestCase{
             )
         );
         $this->obj->addElements($dados);
-        $this->assertEquals('<form action="acao" method="metodo"><fieldset>conteudo<br><textarea rows="10" cols="50">conteudo</textarea><br><ul><li>1</li><li>2</li><li>3</li></ul><select><option value=\'item1\'>item1</option><option value=\'item2\'>item2</option><option value=\'item3\'>item3</option></select><br><input type="submit" name="nome" value="valor"><br><input type="text" name="texto" value="texto"><br></fieldset></form>', $this->obj->render());
+        $this->assertEquals('<form action="acao" method="metodo"><fieldset>conteudo<br><textarea rows="10" cols="50">conteudo</textarea><br><ul><li>1</li><li>2</li><li>3</li></ul><select><option value=\'item1\'>item 1</option><option value=\'item2\'>item 2</option><option value=\'item3\'>item 3</option></select><br><input type="submit" name="nome" value="valor"><br><input type="text" name="texto" value="texto"><br></fieldset></form>', $this->obj->render());
     }
 }
 ?>
