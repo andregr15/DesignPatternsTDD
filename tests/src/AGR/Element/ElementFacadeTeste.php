@@ -1,6 +1,8 @@
 <?php
 namespace AGR\Element;
 use AGR\Element\ElementFacade;
+use AGR\Request\Request;
+use AGR\Validator\Validator;
 
 class ElementFacadeTeste extends \PHPUnit_Framework_TestCase{
     private $obj, $objMock, $requestMock, $validatorMock;
@@ -161,7 +163,7 @@ class ElementFacadeTeste extends \PHPUnit_Framework_TestCase{
         );
 
         $this->obj->populate($dados);
-        $this->assertEquals('<form action="acao" method="metodo"><fieldset>Nome: <br><input type="text" name="nome" value="produto 1"><br>Valor: <br><input type="text" name="valor" value="150.10"><br>Descrição: <br><textarea rows="50" cols="100">descrição produto 1</textarea><br>Forma de Venda: <br><select><option value=\'unitario\'>Unitário</option></select><br></fieldset></form>', $this->obj->render());
+        $this->assertEquals('<form action="acao" method="metodo"><fieldset>Nome: <br><input type="text" name="nome" value="produto 1"><br>Valor: <br><input type="text" name="valor" value="150.10"><br>Descrição: <br><textarea rows="50" cols="100">descrição produto 1</textarea><br>Forma de Venda: <br></fieldset></form>', $this->obj->render());
     }
 
     function testeFuncionalRenderWithErroProduto(){
@@ -172,7 +174,7 @@ class ElementFacadeTeste extends \PHPUnit_Framework_TestCase{
         );
 
         $this->obj->populate($dados);
-        $this->assertEquals('<form action="acao" method="metodo"><fieldset>Nome: <br><input type="text" name="nome" value=""><br>Valor: <br><input type="text" name="valor" value="0.00"><br>Descrição: <br><textarea rows="50" cols="100"></textarea><br>Forma de Venda: <br><select><option value=\'unitario\'>Unitário</option></select><br><ul><li>O nome do produto é obrigatório!</li><li>A descrição deve ter no máximo 200 caracteres!</li><li>O valor deve ser um número positivo!</li></ul></fieldset></form>', $this->obj->render());
+        $this->assertEquals('<form action="acao" method="metodo"><fieldset>Nome: <br><input type="text" name="nome" value=""><br>Valor: <br><input type="text" name="valor" value="0.00"><br>Descrição: <br><textarea rows="50" cols="100"></textarea><br>Forma de Venda: <br><ul><li>O nome do produto é obrigatório!</li><li>A descrição deve ter no máximo 200 caracteres!</li><li>O valor deve ser um número positivo!</li></ul></fieldset></form>', $this->obj->render());
     }
 }
 ?>
